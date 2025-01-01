@@ -1,51 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donjon et Dragon - Sélecteur d'Armes</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a;
-            color: #f1f1f1;
-            text-align: center;
-            padding: 20px;
-        }
-        h1 {
-            color: #ff6600;
-        }
-        button {
-            background-color: #444;
-            border: none;
-            color: white;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #666;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Donjon et Dragon - Sélecteur d'Armes</h1>
-    <button id="tranchantes">Armes Tranchantes/Perforantes</button>
-    <button id="contondantes">Armes Contondantes</button>
-
-    <div class="result" id="result"></div>
-
-    <script>
-        const categories = [
+[
   {
     "name": "Tête",
     "probabilite": 0.2,
@@ -238,45 +191,4 @@
       }
     ]
   }
-];
-
-        // Select a random element based on probabilities
-        function selectRandom(list) {
-            const totalProb = list.reduce((sum, item) => sum + item.probabilite, 0);
-            let random = Math.random() * totalProb;
-            for (const item of list) {
-                random -= item.probabilite;
-                if (random <= 0) {
-                    return item;
-                }
-            }
-        }
-
-        // Filter categories and items for each button
-        function handleSelection(isContondantes) {
-            const validCategories = categories.map(cat => ({
-                ...cat,
-                items: cat.items.filter(item => isContondantes ? !item.isArmeContondantes : !item.isArmeContondantes || item.isArmeContondantes)
-            })).filter(cat => cat.items.length > 0);
-
-            if (validCategories.length === 0) {
-                return "Aucun item disponible pour cette sélection.";
-            }
-
-            const chosenCategory = selectRandom(validCategories);
-            const chosenItem = selectRandom(chosenCategory.items);
-            return `Catégorie : ${chosenCategory.name}<br>Item : ${chosenItem.name}<br>Description : ${chosenItem.descripion}`;
-        }
-
-        document.getElementById('tranchantes').addEventListener('click', () => {
-            const result = handleSelection(false);
-            document.getElementById('result').innerHTML = result;
-        });
-
-        document.getElementById('contondantes').addEventListener('click', () => {
-            const result = handleSelection(true);
-            document.getElementById('result').innerHTML = result;
-        });
-    </script>
-</body>
-</html>
+]
