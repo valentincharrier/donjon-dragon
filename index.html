@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donjon et Dragon - Sélecteur d'Armes</title>
+    <title>Donjon et Dragon - Coups Critiques</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -13,7 +13,7 @@
             padding: 20px;
         }
         h1 {
-            color: #ff6600;
+            color: #fb9527; /* Changer la couleur verte en #fb9527 */
         }
         button {
             background-color: #444;
@@ -34,6 +34,35 @@
         .result {
             margin-top: 20px;
             font-size: 18px;
+        }
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px 20px 0;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid #555; /* Ajoute une bordure plus visible */
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            text-align: left; /* Aligne le contenu à gauche */
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: #fb9527; /* Change la couleur de la bordure au survol */
+        }
+        .card h2 {
+            color: #ffffff; /* Change la couleur du titre en blanc */
+            margin: 0px;
+        }
+        .card ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .card p {
+            color: #f1f1f1;
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -265,7 +294,15 @@
 
             const chosenCategory = selectRandom(validCategories);
             const chosenItem = selectRandom(chosenCategory.items);
-            return `Catégorie : ${chosenCategory.name}<br>Item : ${chosenItem.name}<br>Description : ${chosenItem.descripion}`;
+            return `
+                <div class="card">
+                    <h2>${chosenCategory.name}</h2>
+                    <ul>
+                        <li><strong></strong> ${chosenItem.name}</li>
+                        <li><strong></strong> ${chosenItem.descripion}</li>
+                    </ul>
+                </div>
+            `;
         }
 
         document.getElementById('tranchantes').addEventListener('click', () => {
