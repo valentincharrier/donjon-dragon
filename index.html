@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donjon et Dragon - Coups Critiques</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a;
+            font-family: 'Cinzel', serif;
+            background: url('./font.png') no-repeat center center fixed;
+            background-size: contain;
             color: #f1f1f1;
             text-align: center;
             padding: 20px;
         }
         h1 {
             color: #fb9527; /* Changer la couleur verte en #fb9527 */
+            text-shadow: 2px 2px 4px #000000; /* Améliore la lisibilité */
         }
         button {
             background-color: #444;
@@ -27,6 +31,8 @@
             margin: 10px;
             cursor: pointer;
             border-radius: 5px;
+            opacity: 0.9;
+            font-family: 'Cinzel', serif;
         }
         button:hover {
             background-color: #666;
@@ -45,7 +51,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border: 1px solid #555; /* Ajoute une bordure plus visible */
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            text-align: left; /* Aligne le contenu à gauche */
+            text-align: left;
+            opacity: 0.9;
+            /* background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'); */
+            font-family: 'Cinzel', serif;
         }
         .card:hover {
             transform: translateY(-10px);
@@ -55,14 +64,31 @@
         .card h2 {
             color: #ffffff; /* Change la couleur du titre en blanc */
             margin: 0px;
+            font-size: 1.5rem;
         }
         .card ul {
-            list-style-type: disc;
-            padding-left: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .card ul li:first-child:before {
+            content: '⚔️';
+            position: relative;
+            left: -4px;
+            top: -1px;
+            vertical-align: middle;
         }
         .card p {
             color: #f1f1f1;
             margin: 5px 0;
+        }
+        .card i {
+          font-size: .85rem;
         }
     </style>
 </head>
@@ -81,25 +107,25 @@
     "items": [
       {
         "name": "Coup à la tête",
-        "descripion": "Probabilité d'un coup à la tête",
+        "descripion": "Une attaque implacable qui frappe le crâne de plein fouet.",
         "isArmeContondantes": false,
         "probabilite": 0.7
       },
       {
         "name": "Nez cassé",
-        "descripion": "Probabilité de nez cassé",
+        "descripion": "Un coup brutal qui fait jaillir le sang et brise l'orgueil.",
         "isArmeContondantes": false,
         "probabilite": 0.2
       },
       {
         "name": "Oreille coupée/arrachée",
-        "descripion": "Probabilité d'oreille coupée ou arrachée",
+        "descripion": "Un geste cruel qui prive l'ennemi de son ouïe.",
         "isArmeContondantes": true,
         "probabilite": 0.05
       },
       {
         "name": "Œil crevé",
-        "descripion": "Probabilité d'œil crevé",
+        "descripion": "Une frappe vicieuse qui éteint la lumière du regard.",
         "isArmeContondantes": false,
         "probabilite": 0.05
       }
@@ -111,31 +137,31 @@
     "items": [
       {
         "name": "Cage thoracique enfoncée",
-        "descripion": "Probabilité de cage thoracique enfoncée",
+        "descripion": "Quand la poitrine cède sous la force brute.",
         "isArmeContondantes": false,
         "probabilite": 0.2
       },
       {
         "name": "Côtes cassées",
-        "descripion": "Probabilité de côtes cassées",
+        "descripion": "Un choc féroce qui brise l'armure osseuse.",
         "isArmeContondantes": false,
         "probabilite": 0.7
       },
       {
         "name": "Foie écrasé",
-        "descripion": "Probabilité de foie écrasé",
+        "descripion": "Une frappe sournoise qui sape la vitalité de la cible.",
         "isArmeContondantes": false,
         "probabilite": 0.06
       },
       {
         "name": "Rate perforée",
-        "descripion": "Probabilité de rate perforée",
+        "descripion": "Une blessure profonde qui affaiblit rapidement.",
         "isArmeContondantes": false,
         "probabilite": 0.02
       },
       {
         "name": "Intestins perforés",
-        "descripion": "Probabilité d'intestins perforés",
+        "descripion": "Un coup atroce qui répand la douleur de l'intérieur.",
         "isArmeContondantes": false,
         "probabilite": 0.02
       }
@@ -147,43 +173,43 @@
     "items": [
       {
         "name": "Doigt cassé",
-        "descripion": "Probabilité de doigt cassé",
+        "descripion": "Une torsion rapide qui neutralise la préhension.",
         "isArmeContondantes": false,
         "probabilite": 0.4
       },
       {
         "name": "Épaule cassée",
-        "descripion": "Probabilité d'épaule cassée",
+        "descripion": "Un choc massif qui rend l'épaule inutilisable.",
         "isArmeContondantes": false,
         "probabilite": 0.06
       },
       {
         "name": "Coude cassé",
-        "descripion": "Probabilité de coude cassé",
+        "descripion": "Un tordement qui empêche le moindre mouvement.",
         "isArmeContondantes": false,
         "probabilite": 0.1
       },
       {
         "name": "Main cassée",
-        "descripion": "Probabilité de main cassée",
+        "descripion": "Un écrasement qui anéantit toute possibilité de riposte.",
         "isArmeContondantes": false,
         "probabilite": 0.4
       },
       {
         "name": "Bras coupé",
-        "descripion": "Probabilité de bras coupé",
+        "descripion": "Un geste fatal qui sépare l'ennemi de son bras.",
         "isArmeContondantes": true,
         "probabilite": 0.02
       },
       {
         "name": "Main coupée",
-        "descripion": "Probabilité de main coupée",
+        "descripion": "Un tranchant précis qui prive la cible de sa main.",
         "isArmeContondantes": true,
         "probabilite": 0.02
       },
       {
         "name": "Doigt sectionné",
-        "descripion": "Probabilité de doigt sectionné",
+        "descripion": "Une coupe chirurgicale qui fait hurler de douleur.",
         "isArmeContondantes": true,
         "probabilite": 0.02
       }
@@ -195,43 +221,43 @@
     "items": [
       {
         "name": "Fémur cassé",
-        "descripion": "Probabilité de fémur cassé",
+        "descripion": "Un choc violent qui écourte toute tentative de fuite.",
         "isArmeContondantes": false,
         "probabilite": 0.08
       },
       {
         "name": "Tibia cassé",
-        "descripion": "Probabilité de tibia cassé",
+        "descripion": "Un coup sec qui brise la jambe en un instant.",
         "isArmeContondantes": false,
         "probabilite": 0.3
       },
       {
         "name": "Cheville cassée",
-        "descripion": "Probabilité de cheville cassée",
+        "descripion": "Une frappe qui cloue l’adversaire au sol.",
         "isArmeContondantes": false,
         "probabilite": 0.3
       },
       {
         "name": "Pied cassé",
-        "descripion": "Probabilité de pied cassé",
+        "descripion": "Un écrasement qui étouffe tout espoir de mouvement.",
         "isArmeContondantes": false,
         "probabilite": 0.1
       },
       {
         "name": "Genou fracturé",
-        "descripion": "Probabilité de genou fracturé",
+        "descripion": "Une entaille qui rend la course impossible.",
         "isArmeContondantes": false,
         "probabilite": 0.2
       },
       {
         "name": "Hanche fracturée",
-        "descripion": "Probabilité d'une hanche fracturée sectionné",
+        "descripion": "Une fracture douloureuse qui paralyse l'ennemi.",
         "isArmeContondantes": false,
         "probabilite": 0.05
       },
       {
         "name": "Pied coupé",
-        "descripion": "Probabilité d'un pied coupé",
+        "descripion": "Un acte brutal qui ampute la cible de sa liberté.",
         "isArmeContondantes": true,
         "probabilite": 0.02
       }
@@ -243,25 +269,25 @@
     "items": [
       {
         "name": "Veine perforée",
-        "descripion": "Probabilité d'une veine perforée",
+        "descripion": "Une entaille qui fait couler l'essence vitale.",
         "isArmeContondantes": true,
         "probabilite": 0.2
       },
       {
         "name": "Artère sectionnée",
-        "descripion": "Probabilité d'une artère sectionnée",
+        "descripion": "Un flot de sang qui se déverse à chaque battement.",
         "isArmeContondantes": true,
         "probabilite": 0.2
       },
       {
         "name": "Coup aux parties génitales",
-        "descripion": "Probabilité d'un coup aux parties génitales",
+        "descripion": "La floraison d’une douleur inoubliable.",
         "isArmeContondantes": false,
         "probabilite": 0.5
       },
       {
         "name": "Talon d'achille sectionné",
-        "descripion": "Probabilité d'un talon d'achille sectionné",
+        "descripion": "Un tranchant traître qui anéantit la mobilité.",
         "isArmeContondantes": true,
         "probabilite": 0.1
       }
@@ -298,8 +324,7 @@
                 <div class="card">
                     <h2>${chosenCategory.name}</h2>
                     <ul>
-                        <li><strong></strong> ${chosenItem.name}</li>
-                        <li><strong></strong> ${chosenItem.descripion}</li>
+                        <li><strong>${chosenItem.name}</strong> : <i>${chosenItem.descripion}</i></li>
                     </ul>
                 </div>
             `;
