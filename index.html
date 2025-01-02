@@ -13,11 +13,17 @@
             background-size: contain;
             color: #f1f1f1;
             text-align: center;
-            padding: 20px;
+            padding: 20px 5px;
         }
         h1 {
             color: #fb9527; /* Changer la couleur verte en #fb9527 */
             text-shadow: 2px 2px 4px #000000; /* Améliore la lisibilité */
+        }
+
+        @media (max-width: 600px) {
+          h1 {
+            font-size: 1.25rem;
+          }
         }
         button {
             background-color: #444;
